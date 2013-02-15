@@ -442,9 +442,9 @@ inline unsigned GeodesicAlgorithmExact::intersect_intervals(interval_pointer zer
 
 	double good_start[4];										//points of intersection within the (left, right) limits +"left" + "right"
 	good_start[0] = left;
-	char Ngood_start=1;										//number of the points of the intersection	
+	unsigned char Ngood_start=1;										//number of the points of the intersection	
 
-	for(char i=0; i<Ninter; ++i)							//for all points of intersection
+	for(unsigned char i=0; i<Ninter; ++i)							//for all points of intersection
 	{
 		double x = inter[i];
 		if(x > left + local_epsilon && x < right - local_epsilon)
@@ -455,7 +455,7 @@ inline unsigned GeodesicAlgorithmExact::intersect_intervals(interval_pointer zer
 	good_start[Ngood_start++] = right;
 
 	MapType mid_map[3];
-	for(char i=0; i<Ngood_start-1; ++i)
+	for(unsigned char i=0; i<Ngood_start-1; ++i)
 	{
 		double mid = (good_start[i] + good_start[i+1])*0.5;
 		mid_map[i] = zero->signal(mid) <= one->signal(mid) ? OLD : NEW;
@@ -561,7 +561,7 @@ inline void GeodesicAlgorithmExact::propagate(std::vector<SurfacePoint>& sources
 		interval_pointer min_interval = *m_queue.begin();
 		m_queue.erase(m_queue.begin());
 		edge_pointer edge = min_interval->edge();
-		list_pointer list = interval_list(edge);
+		//list_pointer list = interval_list(edge); -Wunused-variable
 
 		assert(min_interval->d() < GEODESIC_INF);
 
