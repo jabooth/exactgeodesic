@@ -9,6 +9,7 @@
 #include <cmath>
 #include <assert.h>
 #include <set>
+#include <string.h>
 
 namespace geodesic{
 
@@ -134,7 +135,7 @@ private:
 	double start[6];
 	interval_pointer i_new[5];
 
-	unsigned m_queue_max_size;			//used for statistics
+	long unsigned m_queue_max_size;			//used for statistics
 	unsigned m_iterations;			//used for statistics
 
 	SortedSources m_sources;
