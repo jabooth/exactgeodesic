@@ -1,6 +1,4 @@
-#define GEODESIC_DLL_IMPORT __declspec(dllexport)
-
-#include <boost\shared_ptr.hpp>
+#include <boost/shared_ptr.hpp>
 
 #include <iostream>
 #include <fstream>
